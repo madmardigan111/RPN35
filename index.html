@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#171717">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Survey 35">
+<title>Survey 35 — Scientific + Survey Calculator</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="page">
+  <section class="calc" aria-label="Survey 35 scientific calculator">
+    <header class="topline">
+      <div><strong>SURVEY 35</strong><small>SCIENTIFIC / FIELD CALCULATOR</small></div>
+      <button id="installBtn" class="mini" hidden>INSTALL</button>
+    </header>
+
+    <section class="lcd" aria-live="polite">
+      <div id="ann" class="ann">RPN DEG</div>
+      <div id="line1" class="lcdline small">Y: 0</div>
+      <div id="line2" class="lcdline">0</div>
+      <div id="msg" class="lcdmsg">READY</div>
+    </section>
+
+    <div id="keyboard" class="keyboard"></div>
+
+    <div class="survey-dock">
+      <button data-tool="inverse">INV</button><button data-tool="forward">TRAV</button><button data-tool="curve">CURVE</button><button data-tool="triangle">TRI</button><button data-tool="chains">CHAIN</button><button id="catalogBtn">CAT</button>
+    </div>
+  </section>
+</main>
+
+<dialog id="menuDlg" class="dlg"><div class="panel"><div class="dlghead"><h2 id="menuTitle">Menu</h2><button class="x" data-close>×</button></div><div id="menuBody"></div></div></dialog>
+<dialog id="toolDlg" class="dlg"><div class="panel"><div class="dlghead"><div><h2 id="toolTitle">Survey Tool</h2><p id="toolHint"></p></div><button class="x" data-close>×</button></div><div id="toolFields" class="fields"></div><pre id="toolResult" class="result">Enter values.</pre><div class="actions"><button id="calcTool">CALCULATE</button><button id="pushTool">PUSH TO X</button></div></div></dialog>
+<script src="app.js"></script>
+</body>
+</html>
