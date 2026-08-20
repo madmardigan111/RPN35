@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#151515" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Survey 35" />
+  <title>Survey 35</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-180.png" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="calculator" aria-label="Survey 35 calculator">
+      <header class="brandbar">
+        <div>
+          <div class="brand">SURVEY <span>35</span></div>
+          <div class="subtitle">RPN FIELD CALCULATOR</div>
+        </div>
+        <button id="installBtn" class="install" hidden>INSTALL</button>
+      </header>
+
+      <section class="display-wrap">
+        <div class="annunciators">
+          <span id="angleMode">DEG</span>
+          <span>RPN</span>
+          <span id="memoryAnn">M:0</span>
+        </div>
+        <div class="stack">
+          <div class="stack-row"><span>T</span><output id="tVal">0</output></div>
+          <div class="stack-row"><span>Z</span><output id="zVal">0</output></div>
+          <div class="stack-row"><span>Y</span><output id="yVal">0</output></div>
+          <div class="stack-row active"><span>X</span><output id="xVal">0</output></div>
+        </div>
+        <div id="status" class="status">Ready</div>
+      </section>
+
+      <section class="survey-strip" aria-label="Survey functions">
+        <button class="survey-key" data-tool="inverse"><b>INV</b><small>COORD</small></button>
+        <button class="survey-key" data-tool="forward"><b>FWD</b><small>TRAVERSE</small></button>
+        <button class="survey-key" data-tool="chains"><b>CH</b><small>FEET⇄CHAIN</small></button>
+        <button class="survey-key" data-tool="curve"><b>CURVE</b><small>6 MODES</small></button>
+        <button class="survey-key" data-tool="triangle"><b>TRI</b><small>SOLVE</small></button>
+      </section>
+
+      <section class="keypad" id="keypad">
+        <button data-action="shift" class="fn"><span class="yellow">f</span><small>SHIFT</small></button>
+        <button data-action="swap" class="fn"><b>x↔y</b><small>STACK</small></button>
+        <button data-action="roll" class="fn"><b>R↓</b><small>ROLL</small></button>
+        <button data-action="clear" class="fn"><b>CLx</b><small>CLEAR</small></button>
+
+        <button data-action="sin" class="fn"><b>sin</b><small>asin</small></button>
+        <button data-action="cos" class="fn"><b>cos</b><small>acos</small></button>
+        <button data-action="tan" class="fn"><b>tan</b><small>atan</small></button>
+        <button data-action="sqrt" class="fn"><b>√x</b><small>x²</small></button>
+
+        <button data-num="7">7</button>
+        <button data-num="8">8</button>
+        <button data-num="9">9</button>
+        <button data-action="divide" class="op">÷</button>
+
+        <button data-num="4">4</button>
+        <button data-num="5">5</button>
+        <button data-num="6">6</button>
+        <button data-action="multiply" class="op">×</button>
+
+        <button data-num="1">1</button>
+        <button data-num="2">2</button>
+        <button data-num="3">3</button>
+        <button data-action="subtract" class="op">−</button>
+
+        <button data-num="0">0</button>
+        <button data-action="dot">.</button>
+        <button data-action="chs"><b>+/−</b></button>
+        <button data-action="add" class="op">+</button>
+
+        <button data-action="enter" class="enter">ENTER</button>
+        <button data-action="backspace" class="wide"><b>⌫</b></button>
+        <button data-action="reciprocal" class="wide"><b>1/x</b></button>
+      </section>
+
+      <footer>
+        <button id="bearingBtn">DD.MMSS ↔ DMS</button>
+        <button id="angleBtn">ANGLE: DEG</button>
+        <button id="memoryBtn">MEMORY</button>
+      </footer>
+    </section>
+  </main>
+
+  <dialog id="toolDialog">
+    <form method="dialog" class="tool-card" id="toolForm">
+      <div class="tool-head">
+        <div><h2 id="toolTitle">Survey Tool</h2><p id="toolHint"></p></div>
+        <button value="cancel" class="close" aria-label="Close">×</button>
+      </div>
+      <div id="toolFields" class="tool-fields"></div>
+      <div id="toolResult" class="tool-result"></div>
+      <div class="tool-actions">
+        <button type="button" id="calcTool">CALCULATE</button>
+        <button type="button" id="pushTool">PUSH TO X</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
